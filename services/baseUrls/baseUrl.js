@@ -1,32 +1,26 @@
-import axios from "axios";
-const programLink = "/programs/N3WbyvxcsV6.json";
-const trackedEntityLink = "";
-const baseUrlLink = "https://play.dhis2.org/40.0.0/api/29";
 
-const headers = new Headers({
-  Authorization: `Basic ${btoa("admin:district")}`,
-  "Content-type": "application/json",
-  Accept: "application/json",
-});
+const programLink = "/programs/XugY3mCuc3b.json";
+const trackedEntityLink = "";
+const baseUrlLink = "https://www.namis.org/test/api/29";
+
+const header = {
+  'Authorization': `Basic ${btoa('bernardmasache:Twapalisha1.')}`,
+  'Content-type': 'application/json',
+  Accept: 'application/json',
+}
 
 export default class BaseUrls {
-  headers = () => {
-    return {
-      mode: "cors",
-      credentials: "include",
-      headers,
-    };
-  };
-  bs = "https://play.dhis2.org/40.0.0/api/29/programs/N3WbyvxcsV6.json";
 
-  baseUrl = () => {
-    return baseUrlLink;
-  };
-  programUrl = () => {
-    return `${this.baseUrl}/${programLink}`;
+  headers = {
+    mode: "cors",
+    credentials: "include",
+    headers: header,
   };
 
-  trackedEntity = () => {
-    return `${this.baseUrl}/${trackedEntityLink}`;
-  };
+  baseUrl = baseUrlLink;
+
+  programUrl = `${this.baseUrl}/${programLink}`;
+
+  trackedEntity = `${this.baseUrl}/${trackedEntityLink}`;
+
 }

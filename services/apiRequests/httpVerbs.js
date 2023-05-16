@@ -1,17 +1,9 @@
 import axios from "axios";
-const headers = new Headers({
-  Authorization: `Basic ${btoa("admin:district")}`,
-  "Content-type": "application/json",
-  Accept: "application/json",
-});
+
 export default class HttpVerbs {
-  get = async (url) => {
+  get = async (url, headers) => {
     try {
-      const response = await axios.get(url, {
-        mode: "cors",
-        credentials: "include",
-        headers,
-      });
+      const response = await axios.get(url, headers);
       return response;
     } catch (e) {
       return e;
